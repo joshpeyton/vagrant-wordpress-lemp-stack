@@ -1,0 +1,27 @@
+server {
+    # Force WWW if not entered
+    listen 127.0.0.1:8080;
+    server_name example.com;
+    rewrite ^/(.*)$ http://www.example.com/$1 permanent;
+}
+server {
+    # Prod
+    listen 127.0.0.1:8080;
+    server_name www.example.com;
+    root /project/www/prod;
+    access_log /var/log/nginx/www.example.com.access.log;
+    error_log /var/log/nginx/www.example.com.error.log;
+    include global/common.conf;
+    include global/wordpress.conf;
+    rewrite /wp-admin$ $scheme://$host$uri/ permanent;
+}
+server {
+    # Dev
+    listen 127.0.0.1:8080;
+    server_name dev.example.com;
+    root /project/www/dev;
+    access_log /var/log/nginx/dev.example.com.access.log;
+    error_log /var/log/nginx/dev.example.com.error.log;
+    include global/common.conf;
+    include global/wordpress.conf;
+}
