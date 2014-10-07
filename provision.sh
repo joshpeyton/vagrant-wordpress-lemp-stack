@@ -123,4 +123,11 @@ sudo cp /project/config/varnishdefault.vcl /etc/varnish/default.vcl
 sudo service nginx restart
 sudo service varnish restart
 
+# UFW Firewall Rules & Enable
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh
+sudo ufw allow www
+sudo ufw --force enable
+
 echo "### NOTE: SSH into server and sudo nano /etc/php5/fpm/php.ini. change cgi.fix_pathinfo=1 to 0 ###"
