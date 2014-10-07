@@ -1,6 +1,6 @@
 # Vagrant Wordpress Stack
 
-Vagrant WordPress stack running on Ubuntu 14.04, NGINX, PHP-FPM, MySQL, and Varnish.
+Vagrant WordPress stack running on Ubuntu 14.04, NGINX, PHP-FPM, MySQL, and Varnish with UFW enabled.
 Shell provisioning
 
 ## Requirements
