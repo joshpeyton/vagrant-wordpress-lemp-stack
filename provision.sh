@@ -110,7 +110,14 @@ sudo service php5-fpm restart
 
   # Overwrite Nginx default virtualhosts
   sudo cp /project/config/virtualhosts /etc/nginx/sites-available/default
+
+  # Overwrite Nginx nginx.conf
+  sudo cp /project/config/nginx.conf /etc/nginx/nginx.conf
+
 #End create global nginx conf files
+
+# Overwrite PHP.ini file
+sudo cp /project/config/php.ini /etc/php5/fpm/php.ini
 
 # Install Varnish Cache
 sudo apt-get install -y -q -f varnish
@@ -119,7 +126,8 @@ sudo apt-get install -y -q -f varnish
 sudo cp /project/config/varnish /etc/default/varnish
 sudo cp /project/config/varnishdefault.vcl /etc/varnish/default.vcl
 
-# Restart Nginx & Varnish
+# Restart PHP-FPM, Nginx & Varnish
+sudo service php5-fpm restart
 sudo service nginx restart
 sudo service varnish restart
 
