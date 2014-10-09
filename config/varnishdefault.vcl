@@ -28,6 +28,7 @@ sub vcl_recv {
 sub vcl_fetch {
 	if (!(req.url ~ "wp-(login|admin)")) {
 	    unset beresp.http.set-cookie;
+	    set beresp.ttl = 1h;
 	}
 }
 
