@@ -29,6 +29,9 @@ Shell provisioning
   * MYSQLWPUSER - set user for database to use for Wordpress configuration
   * MYSQLWPUSERPW - set password for user to use for Wordpress configuration
   * MYSQLWPIMPORT - set to yes if importing current database structure or no for new Wordpress setup
+  * DIGITALOCEAN_TOKEN - set to Digital Ocean token created in your account
+  * DIGITALOCEAN_REGION - set to your region, examples:(nyc3, br1, sfo1, ams4) 
+  * DIGITALOCEAN_SIZE - set to desired box (512mb, 1g, 2g, 4g, 8g)
 3. Edit virtualhosts file
   * Forces example.com to be www.example.com. Change as necessary.
   ```
