@@ -126,6 +126,9 @@ sudo apt-get install -y -q -f varnish
 sudo cp /project/config/varnish /etc/default/varnish
 sudo cp /project/config/varnishdefault.vcl /etc/varnish/default.vcl
 
+# Change ownership of files to www-data
+sudo chown -R www-data:www-data /project/www
+
 # Restart PHP-FPM, Nginx & Varnish
 sudo service php5-fpm restart
 sudo service nginx restart
