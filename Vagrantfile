@@ -10,6 +10,10 @@
   BOX_MEMORY = "512"
   PROVISION = "provision.sh"
 
+  DIGITALOCEAN_TOKEN = "DIGITAL_OCEAN_TOKEN_HERE"
+  DIGITALOCEAN_REGION = "nyc2"
+  DIGITALOCEAN_SIZE = "512mb"
+
 #-------------------------DO NOT EDIT BELOW HERE--------------------------------
 #-------------------------UNLESS YOU KNOW WHAT YOU'RE DOING---------------------
 
@@ -50,5 +54,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # allow symlinks to be created in the shared folder (ex: node_modules):
     vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/project", "1"]
+  end
+  config.vm.provider :digital_ocean do |provider, override|
+    override.ssh.private_key_path = '~/.ssh/id_rsa'
+    override.vm.box = 'digital_ocean'
+    override.vm.box_url = "https://github.com/smdahlen/vagrant-digitalocean/raw/master/box/digital_ocean.box"
+
+    provider.token = DIGITALOCEAN_TOKEN
+    provider.image = 'Ubuntu 14.04 x64'
+    provider.region = DIGITALOCEAN_REGION
+    provider.size = DIGITALOCEAN_SIZE
+    provider.private_networking = 'false'
   end
 end
