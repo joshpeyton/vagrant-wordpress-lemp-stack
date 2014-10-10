@@ -7,13 +7,14 @@ Shell provisioning
 * Install VirtualBox
 * Install Vagrant
 * Download Wordpress
+* (Optional) Install vagrant-digitalocean plugin to use Digital Ocean as a provider. Also be sure to create an SSH key.
 
 ## Usage
 1. Download Wordpress or backup current Wordpress file structure 
 2. Copy all files to /www/prod folder
 3. If copying current Wordpress site, export MySQL tables to SQL file, copy to /database/ folder
 4. Configure files or leave defaults(see Configuration section)
-5. In terminal, cd into directory, run "vagrant up" (no quotes)
+5. In terminal, cd into directory, run "vagrant up" (no quotes). To use Digital Ocean as provider, run "vagrant up --provider=digital_ocean"
 
 ##Configuration
 1. Edit Vagrantfile settings under "CONFIGURE BOX VARIABLES"
